@@ -30,3 +30,13 @@ Route::get('/back', 'Controller@membre_back');
 Route::get('/admin', 'Controller@membre_admin');
 
 Route::get('/membres', 'Controller@membres');
+
+Route::resource('members', 'MembreController');
+
+Route::get('/ajout', function () {
+    return view('membre/create');
+});
+
+Route::get('/members/suppr/{id}', 'MembreController@destroy');
+
+Route::post('/members/update/{id}', 'MembreController@update');
